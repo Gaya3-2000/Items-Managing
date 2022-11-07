@@ -1,5 +1,6 @@
 package com.Spring.managing.items.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,7 +12,7 @@ import com.Spring.managing.items.service.ItemService;
 
 @Controller
 public class ItemController {
-   
+    @Autowired
 	private ItemService itemService;
 
 	public ItemController(ItemService itemService) {
@@ -55,7 +56,7 @@ public class ItemController {
 	      
 		//get Item from database by id
 		Item existingItem=itemService.getItemById(id);
-		existingItem.setId(id);
+		//existingItem.setId(id);
 		existingItem.setName(item.getName());
 		existingItem.setPrice(item.getPrice());
 		existingItem.setQuantity(item.getQuantity());
@@ -70,6 +71,17 @@ public class ItemController {
 	public String deleteItem(@PathVariable Long id) {
 		itemService.deleteItemById(id);
 		return "redirect:/items";
+	}
+	
+	/*@GetMapping("/items/adress")
+	public String placeOrder() {
+		return "place_order";
+	}*/
+
+	
+	@GetMapping("/items/final")
+	public String confirmOrder() {
+		return "confirm_order";
 	}
 
 	

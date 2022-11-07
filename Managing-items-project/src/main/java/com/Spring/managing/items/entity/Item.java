@@ -11,8 +11,8 @@ import javax.persistence.Table;
 @Table(name="items")
 public class Item {
 	
-	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Id    //to mapping with primary key in db
+	@GeneratedValue(strategy=GenerationType.IDENTITY)   //for auomatic generation of primary key
 	private Long id;
 	
 	@Column
