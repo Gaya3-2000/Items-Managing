@@ -73,12 +73,6 @@ public class ItemController {
 		return "redirect:/items";
 	}
 	
-	/*@GetMapping("/items/adress")
-	public String placeOrder() {
-		return "place_order";
-	}*/
-
-	
 	@GetMapping("/items/final")
 	public String confirmOrder() {
 		return "confirm_order";
